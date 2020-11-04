@@ -18,15 +18,28 @@ struct process
     int burst;
     int priority;
 };
+struct gantt
+{
+    int process;
+    int burst;
+    int time;
+};
+bool operator<(const process &a, const process &b) // called when sorting
+{ 
+    return a.arrival < b.arrival;
+}
 
+vector<process> sortProc;
+vector<process> readMe;
+vector<gantt> ganttChart;
 int numProc = 0;
 int foreground = 0, background = 0; // foreground and background processes
 int qFore = 0;
 int qBack = 0;
-vector<process> sortProc;
+bool processing = true;
 
 void processValues(vector<int>);
-void FCFS(vector<int>, vector<int>, vector<int>);
+void FCFS();
 
 int main()
 {
@@ -80,11 +93,42 @@ int main()
     cout << endl;
 
     // sort according to arrival time
-    sort(sortProc.begin(), sortProc.end(), [](const auto &i, const auto &j) {
-        return i.arrival < j.arrival;
-    });
+    sort(sortProc.begin(), sortProc.end());
 
-    
+    // priority checking
+    int burstSum = 0;
+    for (int i = 0, j = 0, p = 0; processing;)
+    {
+        readMe.push_back({sortProc[i].order, sortProc[i].arrival, sortProc[i].burst, sortProc[i].priority});
+
+        if (readMe.size() == 1) // when there is only 1 process in the queue
+        {
+            if (readMe[i].priority == 1)
+                p = foreground;
+            else if (readMe[i].priority == 2)
+                p = background;
+        }
+        else // when there are more than 1 process in the queue
+        {
+            for (int k = 0; k < readMe.size(); k++) // this shall be used to get priority 1 and run that process.
+            {
+            }
+        }
+        processing = false; // breaker for now (for testing)
+        switch (p)          // switch case for running an algo that is determined by p (foreground/background)
+        {
+        case 1:
+            FCFS();
+            break;
+        case 2:
+            break;
+        }
+
+        for (int i = 0; i < sortProc.size(); i++)
+            burstSum += sortProc[i].burst;
+        if (burstSum == 0)
+            processing = false;
+    }
 }
 
 void processValues(vector<int> processes)
@@ -93,10 +137,7 @@ void processValues(vector<int> processes)
 
     // AT, BT, Priority (1 or 2)
     for (int i = 0; i < numProc; i++)
-        sortProc.push_back({(i + 1)
-        , (processes[i + 1])
-        , (processes[numProc + i + 1])
-        , (processes[(numProc * 2) + i + 1])});
+        sortProc.push_back({(i + 1), (processes[i + 1]), (processes[numProc + i + 1]), (processes[(numProc * 2) + i + 1])});
 
     // FP & BP
     int incrementer = 0;
@@ -112,6 +153,6 @@ void processValues(vector<int> processes)
         qBack = processes[(numProc * 3) + 2 + incrementer];
 }
 
-void FCFS(vector<int> at, vector<int> bt, vector<int> p)
+void FCFS()
 {
 }
