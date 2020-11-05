@@ -25,7 +25,7 @@ struct gantt
     int time;
 };
 bool operator<(const process &a, const process &b) // called when sorting
-{ 
+{
     return a.arrival < b.arrival;
 }
 
@@ -39,7 +39,7 @@ int qBack = 0;
 bool processing = true;
 
 void processValues(vector<int>);
-void FCFS();
+int FCFS(int,int);
 
 int main()
 {
@@ -97,20 +97,57 @@ int main()
 
     // priority checking
     int burstSum = 0;
-    for (int i = 0, j = 0, p = 0; processing;)
+    for (int i = 0, j = 0, p = 0, rp = 0; processing;)
     {
         //readMe.push_back({sortProc[i].order, sortProc[i].arrival, sortProc[i].burst, sortProc[i].priority});
-
         // i = time units, check if a process arrives at every time unit. Then check their priority
-        processing = false; // breaker for now (for testing)
-        switch (p)          // switch case for running an algo that is determined by p (foreground/background)
+        if (i == sortProc[j].arrival)
         {
-        case 1:
-            FCFS();
-            break;
-        case 2:
-            break;
+            if (readMe.size() < 1)
+            {
+                readMe.push_back({sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority});
+                p = readMe[j].priority;
+            }
+            else
+            {
+                readMe.push_back({sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority});
+                for (int k = 0, r = 0; k < readMe.size(); k++, r++)
+                {
+                    if (readMe[r].priority == 2) // sorts processes according to priority. priority 1 will always go first
+                    {
+                        //process move = new process({readMe[k].order, readMe[k].arrival, readMe[k].burst, readMe[k].priority});
+                        readMe.push_back({readMe[r].order, readMe[r].arrival, readMe[r].burst, readMe[r].priority});
+                        readMe.erase(readMe.begin() + r);
+                        r -= 1;
+                    }
+                }
+                p = readMe[j].priority;
+            }
+
+            //process scheduling algo
+            switch (p) // switch case for running an algo that is determined by p (foreground/background)
+            {
+            case 1:
+                FCFS(rp,i);
+                break;
+            case 2:
+                break;
+            }
+            j++;
         }
+        else
+        {
+            switch (p) // switch case for running an algo that is determined by p (foreground/background)
+            {
+            case 1:
+                FCFS(rp,i);
+                break;
+            case 2:
+                break;
+            }
+        }
+
+        processing = false; // breaker for now (for testing)
 
         for (int i = 0; i < sortProc.size(); i++)
             burstSum += sortProc[i].burst;
@@ -141,6 +178,12 @@ void processValues(vector<int> processes)
         qBack = processes[(numProc * 3) + 2 + incrementer];
 }
 
-void FCFS()
+int FCFS(int running, int time)
 {
+    readMe[running].burst -= 1;
+    if(readMe[running].burst == 0){
+        ganttChart.push_back({readMe[running].order, readMe[running].burst})
+        readMe.erase(readMe.begin()+running);
+    }
+        
 }
