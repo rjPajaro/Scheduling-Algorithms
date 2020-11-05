@@ -99,21 +99,9 @@ int main()
     int burstSum = 0;
     for (int i = 0, j = 0, p = 0; processing;)
     {
-        readMe.push_back({sortProc[i].order, sortProc[i].arrival, sortProc[i].burst, sortProc[i].priority});
+        //readMe.push_back({sortProc[i].order, sortProc[i].arrival, sortProc[i].burst, sortProc[i].priority});
 
-        if (readMe.size() == 1) // when there is only 1 process in the queue
-        {
-            if (readMe[i].priority == 1)
-                p = foreground;
-            else if (readMe[i].priority == 2)
-                p = background;
-        }
-        else // when there are more than 1 process in the queue
-        {
-            for (int k = 0; k < readMe.size(); k++) // this shall be used to get priority 1 and run that process.
-            {
-            }
-        }
+        // i = time units, check if a process arrives at every time unit. Then check their priority
         processing = false; // breaker for now (for testing)
         switch (p)          // switch case for running an algo that is determined by p (foreground/background)
         {
