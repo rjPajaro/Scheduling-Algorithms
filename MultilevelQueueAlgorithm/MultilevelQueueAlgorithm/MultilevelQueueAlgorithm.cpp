@@ -32,6 +32,7 @@ bool operator<(const process& a, const process& b) // called when sorting
 vector<process> sortProc;
 vector<process> readMe;
 vector<gantt> ganttChart;
+vector<int> currentProc;
 int numProc = 0;
 int foreground = 0, background = 0; // foreground and background processes
 int qFore = 0;
@@ -95,62 +96,39 @@ int main()
     // sort according to arrival time
     sort(sortProc.begin(), sortProc.end());
 
+    for (int i = 0; i < sortProc.size(); i++) 
+        currentProc.push_back(i);
+    
+    /*
+    * Process for multilevel queue:
+    * - have an incrementing arrival time and a variable that checks and increments process vector
+    * - condition that when the process meets the arrival time, add to the queue
+    */
+
     // priority checking
     int burstSum = 0;
-    for (int i = 0, j = 0, p = 0, rp = 0; processing;)
+    for (int i = 0, j = 0; processing; i++) // i == time units, processing will only break when every burst reaches 0
     {
-        //readMe.push_back({sortProc[i].order, sortProc[i].arrival, sortProc[i].burst, sortProc[i].priority});
-        // i = time units, check if a process arrives at every time unit. Then check their priority
-        if (i == sortProc[j].arrival)
-        {
-            if (readMe.size() < 1)
-            {
-                readMe.push_back({ sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
-                p = readMe[j].priority;
-            }
-            else
-            {
-                readMe.push_back({ sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
-                for (int k = 0, r = 0; k < readMe.size(); k++, r++)
-                {
-                    if (readMe[r].priority == 2) // sorts processes according to priority. priority 1 will always go first
-                    {
-                        //process move = new process({readMe[k].order, readMe[k].arrival, readMe[k].burst, readMe[k].priority});
-                        readMe.push_back({ readMe[r].order, readMe[r].arrival, readMe[r].burst, readMe[r].priority });
-                        readMe.erase(readMe.begin() + r);
-                        r -= 1;
-                    }
-                }
-                p = readMe[j].priority;
-            }
-
-            //process scheduling algo
-            switch (p) // switch case for running an algo that is determined by p (foreground/background)
-            {
-            case 1:
-                FCFS(rp, i);
-                break;
-            case 2:
-                break;
-            }
+        if (i == sortProc[j].arrival){ // condition where process meets arrival time
+            readMe.push_back({ sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
             j++;
         }
-        else
-        {
-            switch (p) // switch case for running an algo that is determined by p (foreground/background)
-            {
-            case 1:
-                FCFS(rp, i);
-                break;
-            case 2:
-                break;
+        
+
+        i++;
+
+        if (j == sortProc.size()) {
+            processing = false; // breaker for now (for testing)
+            for (int y = 0; y < sortProc.size(); y++) {
+                cout << "Order: " << readMe[y].order << endl
+                     << "Arrival: " << readMe[y].arrival << endl
+                     << "Burst: " << readMe[y].burst << endl
+                     << "Priority: " << readMe[y].priority << endl << endl;
             }
         }
-
-        processing = false; // breaker for now (for testing)
-
-        for (int i = 0; i < sortProc.size(); i++)
-            burstSum += sortProc[i].burst;
+            
+        for (int x = 0; x < sortProc.size(); x++)
+            burstSum += sortProc[x].burst;
         if (burstSum == 0)
             processing = false;
     }
