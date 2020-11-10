@@ -110,12 +110,21 @@ int main()
     for (int i = 0, j = 0; processing; i++) // i == time units, processing will only break when every burst reaches 0
     {
         if (i == sortProc[j].arrival){ // condition where process meets arrival time
-            readMe.push_back({ sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
+            if (sortProc[j].priority == 2) { //put all process with priority of 2 at the end of the vector (readMe)
+                readMe.push_back({ sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
+            }
+            else if (sortProc[j].priority == 1) { //put all process with priority of 1 first
+                for (int pr = 0; pr < readMe.size(); pr++) {
+                    if (readMe[pr].priority == 2) {
+                        readMe.insert(readMe.begin() + pr, { sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
+                        break;
+                    }
+                }
+            }
+
             j++;
         }
         
-
-        i++;
 
         if (j == sortProc.size()) {
             processing = false; // breaker for now (for testing)
@@ -131,6 +140,8 @@ int main()
             burstSum += sortProc[x].burst;
         if (burstSum == 0)
             processing = false;
+        else
+            burstSum = 0;
     }
 }
 
