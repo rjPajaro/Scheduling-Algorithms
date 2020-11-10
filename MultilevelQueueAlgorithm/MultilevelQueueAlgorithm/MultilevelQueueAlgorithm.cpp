@@ -37,10 +37,11 @@ int numProc = 0;
 int foreground = 0, background = 0; // foreground and background processes
 int qFore = 0;
 int qBack = 0;
+int currentQueue = -1;
 bool processing = true;
 
 void processValues(vector<int>);
-int FCFS(int, int);
+int FCFS();
 
 int main()
 {
@@ -101,8 +102,10 @@ int main()
     
     /*
     * Process for multilevel queue:
-    * - have an incrementing arrival time and a variable that checks and increments process vector
-    * - condition that when the process meets the arrival time, add to the queue
+    * - have an incrementing arrival time and a variable that checks and increments process vector [/]
+    * - condition that when the process meets the arrival time, add to the queue [/]
+    * - sort according to priority (1 first then 2 would go last) [/]
+    * - FCFS
     */
 
     // priority checking
@@ -114,34 +117,72 @@ int main()
                 readMe.push_back({ sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
             }
             else if (sortProc[j].priority == 1) { //put all process with priority of 1 first
-                for (int pr = 0; pr < readMe.size(); pr++) {
+                for (int pr = 0; pr < readMe.size(); pr++) {// when the priority is 2, insert the priority
                     if (readMe[pr].priority == 2) {
                         readMe.insert(readMe.begin() + pr, { sortProc[j].order, sortProc[j].arrival, sortProc[j].burst, sortProc[j].priority });
                         break;
                     }
                 }
             }
-
             j++;
         }
-        
 
-        if (j == sortProc.size()) {
-            processing = false; // breaker for now (for testing)
-            for (int y = 0; y < sortProc.size(); y++) {
-                cout << "Order: " << readMe[y].order << endl
-                     << "Arrival: " << readMe[y].arrival << endl
-                     << "Burst: " << readMe[y].burst << endl
-                     << "Priority: " << readMe[y].priority << endl << endl;
+        if (currentQueue == -1) // this is to start the queue process if it hasn't started yet
+            currentQueue = readMe[0].priority;
+        
+        //currentQueue will always be reinitialized according to their priority process
+        switch (currentQueue) {
+        case 1: // foreground
+            switch (foreground) {
+            case 1: // FCFS
+                currentQueue = FCFS();
+                break;
+            case 2: // SJF-P
+                break;
+            case 3: // SJF-NP
+                break;
+            case 4: // P-P
+                break;
+            case 5: // P-NP
+                break;
+            case 6: // RR
+                break;
             }
+            break;
+        case 2: // background
+            switch(background) {
+            case 1: // FCFS
+                currentQueue = FCFS();
+                break;
+            case 2: // SJF-P
+                break;
+            case 3: // SJF-NP
+                break;
+            case 4: // P-P
+                break;
+            case 5: // P-NP
+                break;
+            case 6: // RR
+                break;
+            }
+            break;
+        }
+        
+        // Debugger
+        {
+            //if (j == sortProc.size()) {
+            //    processing = false; // breaker for now (for testing)
+            //    for (int y = 0; y < sortProc.size(); y++) {
+            //        cout << "Order: " << readMe[y].order << endl
+            //             << "Arrival: " << readMe[y].arrival << endl
+            //             << "Burst: " << readMe[y].burst << endl
+            //             << "Priority: " << readMe[y].priority << endl << endl;
+            //    }
+            //}
         }
             
-        for (int x = 0; x < sortProc.size(); x++)
-            burstSum += sortProc[x].burst;
-        if (burstSum == 0)
+        if (readMe.size() == 0)
             processing = false;
-        else
-            burstSum = 0;
     }
 }
 
@@ -167,13 +208,9 @@ void processValues(vector<int> processes)
         qBack = processes[(numProc * 3) + 2 + incrementer];
 }
 
-int FCFS(int running, int time)
+int FCFS()
 {
-    readMe[running].burst -= 1;
-    if (readMe[running].burst == 0) {
-        ganttChart.push_back({ readMe[running].order, readMe[running].burst });
-            readMe.erase(readMe.begin() + running);
-    }
+    int next = 0;
 
-    return time;
+    return next;
 }
