@@ -111,7 +111,7 @@ int main()
 
 	// priority checking
 	int burstSum = 0;
-	for (int i = 0, j = 0; processing; i++) // i == time units, processing will only break when every burst reaches 0
+	for (int i = sortProc[0].arrival, j = 0; processing; i++) // i == time units, processing will only break when every burst reaches 0
 	{
 		if (i == sortProc[j].arrival) { // condition where process meets arrival time
 			if (sortProc[j].priority == 2) { //put all process with priority of 2 at the end of the vector (readMe)
@@ -198,6 +198,7 @@ int main()
 			for (int u = 0; u < ganttChart.size(); u++) {
 				cout << "P" << ganttChart[u].process << " ";
 			}
+			cout << endl;
 			system("pause");
 		}
 			
