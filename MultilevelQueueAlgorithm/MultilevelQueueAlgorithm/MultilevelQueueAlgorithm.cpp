@@ -43,6 +43,7 @@ bool processing = true;
 
 void processValues(vector<int>);
 int FCFS(int);
+int SJF_P(int);
 
 int main()
 {
@@ -149,6 +150,7 @@ int main()
 				currentQueue = FCFS(i);
 				break;
 			case 2: // SJF-P
+				currentQueue = SJF_P(i);
 				break;
 			case 3: // SJF-NP
 				break;
@@ -166,6 +168,7 @@ int main()
 				currentQueue = FCFS(i);
 				break;
 			case 2: // SJF-P
+				currentQueue = SJF_P(i);
 				break;
 			case 3: // SJF-NP
 				break;
@@ -191,14 +194,28 @@ int main()
 		//}
 		
 
-
+		/*Debugger - Gantt Chart*/
 		if (readMe.size() == 0) {
 			processing = false;
 
 			for (int u = 0; u < ganttChart.size(); u++) {
-				cout << "P" << ganttChart[u].process << " ";
+				if (u == 0) {
+					cout << "P" << ganttChart[u].process << " ";
+				}
+				else if (ganttChart[u].process != ganttChart[u - 1].process) {
+					cout << "P" << ganttChart[u].process << " ";
+				}
 			}
 			cout << endl;
+			for (int u = 0; u < ganttChart.size(); u++) {
+				if (u == 0) {
+					cout << ganttChart[u].time << " ";
+				}
+				else if (ganttChart[u].process != ganttChart[u - 1].process) {
+					cout << ganttChart[u].time << " ";
+				}
+			}
+			cout << ganttChart[ganttChart.size() - 1].time << endl;
 			system("pause");
 		}
 			
@@ -228,7 +245,7 @@ void processValues(vector<int> processes)
 }
 
 /* FCFS
-* shall always finish the burst of the process before moving onto the next
+* Shall always finish the burst of the process before moving onto the next
 * If the current process is a bg process, once a fg process queues at a certain time unit, stop bg process
 * If the process is finished, pop the process from the queue
 */
@@ -241,15 +258,15 @@ int FCFS(int arrived)
 
 	ganttChart.push_back({readMe[pos].order, readMe[pos].burst, arrived});
 
-	if (readMe[pos].burst > 0)
+	if (readMe[pos].burst > 0) // if the process still has bursts left
 		next = readMe[pos].priority;
-	else if (readMe[pos].burst <= 0) {
+	else if (readMe[pos].burst <= 0) { // if the process has no bursts left
 		readMe.erase(readMe.begin() + pos);
-		if (pos == readMe.size()) {
+		if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
 			pos = 0;
 		}
 
-		if (readMe.size() > 0) {
+		if (readMe.size() > 0) { // when there are still processes left
 			next = readMe[pos].priority;
 		}
 	}
@@ -257,3 +274,15 @@ int FCFS(int arrived)
 
 	return next; // shall return the priority value of the process that should be ran (probs gonna change this)
 }
+
+
+/* SJF-P
+* Should choose the process with the lowest burst time first
+* 
+*/
+int SJF_P(int arrived) {
+	int next = 0;
+
+	return next;
+}
+
