@@ -24,9 +24,14 @@ struct gantt
 	int burst;
 	int time;
 };
-bool operator<(const process& a, const process& b) // called when sorting
+
+bool arrivalSort(process a, process b) // called when sorting
 {
 	return a.arrival < b.arrival;
+}
+
+bool burstSort(process a, process b) {
+	return a.burst < b.burst;
 }
 
 vector<process> sortProc;
@@ -97,7 +102,7 @@ int main()
 	cout << endl;
 
 	// sort according to arrival time
-	sort(sortProc.begin(), sortProc.end());
+	sort(sortProc.begin(), sortProc.end(), arrivalSort);
 
 	for (int i = 0; i < sortProc.size(); i++)
 		currentProc.push_back(i);
@@ -215,8 +220,7 @@ int main()
 					cout << ganttChart[u].time << " ";
 				}
 			}
-			cout << ganttChart[ganttChart.size() - 1].time << endl;
-			system("pause");
+			cout << ganttChart.size() << endl << endl;
 		}
 			
 	}
@@ -282,6 +286,71 @@ int FCFS(int arrived)
 */
 int SJF_P(int arrived) {
 	int next = 0;
+	int runTime = 0;
+
+	if (runTime == readMe[pos].arrival) {
+		// check which of the current processes in the queue has the lowest burst time and then re-order the queue
+
+		if (readMe.size() > 1) {
+			sort(readMe.begin(), readMe.end(), burstSort);
+			readMe[pos].burst--;
+
+			ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+			if (readMe[pos].burst > 0) // if the process still has bursts left
+				next = readMe[pos].priority;
+			else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+				readMe.erase(readMe.begin() + pos);
+				if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+					pos = 0;
+				}
+
+				if (readMe.size() > 0) { // when there are still processes left
+					next = readMe[pos].priority;
+				}
+			}
+		}
+		else {
+			readMe[pos].burst--;
+
+			ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+			if (readMe[pos].burst > 0) // if the process still has bursts left
+				next = readMe[pos].priority;
+			else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+				readMe.erase(readMe.begin() + pos);
+				if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+					pos = 0;
+				}
+
+				if (readMe.size() > 0) { // when there are still processes left
+					next = readMe[pos].priority;
+				}
+			}
+		}
+		
+	}
+	else {
+		sort(readMe.begin(), readMe.end(), burstSort);
+		readMe[pos].burst--;
+
+		ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+		if (readMe[pos].burst > 0) // if the process still has bursts left
+			next = readMe[pos].priority;
+		else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+			readMe.erase(readMe.begin() + pos);
+			if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+				pos = 0;
+			}
+
+			if (readMe.size() > 0) { // when there are still processes left
+				next = readMe[pos].priority;
+			}
+		}
+	}
+
+
 
 	return next;
 }
