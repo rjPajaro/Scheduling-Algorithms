@@ -1,9 +1,19 @@
 ﻿  MultilevelQueueAlgorithm.cpp
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(71,20): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(74,20): warning C4018: '<': signed/unsigned mismatch
 E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(77,20): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(101,20): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(122,25): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(198,22): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(207,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(80,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(83,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(107,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(128,25): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(206,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(215,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(298,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(309,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(311,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(318,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(320,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(365,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(376,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(378,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(385,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(387,22): warning C4018: '<': signed/unsigned mismatch
   MultilevelQueueAlgorithm.vcxproj -> E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\Debug\MultilevelQueueAlgorithm.exe
