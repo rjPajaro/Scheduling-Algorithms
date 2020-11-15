@@ -49,6 +49,7 @@ bool processing = true;
 void processValues(vector<int>);
 int FCFS(int);
 int SJF_P(int);
+int SJF_NP(int);
 
 int main()
 {
@@ -158,6 +159,7 @@ int main()
 				currentQueue = SJF_P(i);
 				break;
 			case 3: // SJF-NP
+				currentQueue = SJF_NP(i);
 				break;
 			case 4: // P-P
 				break;
@@ -176,6 +178,7 @@ int main()
 				currentQueue = SJF_P(i);
 				break;
 			case 3: // SJF-NP
+				currentQueue = SJF_NP(i);
 				break;
 			case 4: // P-P
 				break;
@@ -198,7 +201,6 @@ int main()
 		//    }
 		//}
 		
-
 		/*Debugger - Gantt Chart*/
 		if (readMe.size() == 0) {
 			processing = false;
@@ -287,9 +289,8 @@ int FCFS(int arrived)
 */
 int SJF_P(int arrived) {
 	int next = 0;
-	int runTime = 0;
 
-	if (runTime == readMe[pos].arrival) {
+	if (arrived == readMe[pos].arrival) {
 		// check which of the current processes in the queue has the lowest burst time and then re-order the queue
 
 		if (readMe.size() > 1) {
@@ -406,10 +407,16 @@ int SJF_P(int arrived) {
 			}
 		}
 	}
-
-
-
 	return next;
 }
 
+/* SJF-NP
+* Finish whichever process arrives first, then compare the burst on which should be finished next
+* When SJF_NP = 1, sort all process with priority of 1 [/]
+* When SJF_NP = 2, sort all process with priority of 2 [/]
+*/
+int SJF_NP(int arrived) {
+	int next = 0;
 
+	return next;
+}

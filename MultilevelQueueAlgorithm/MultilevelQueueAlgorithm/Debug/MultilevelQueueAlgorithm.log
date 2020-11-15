@@ -6,14 +6,14 @@ E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgor
 E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(128,25): warning C4018: '<': signed/unsigned mismatch
 E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(206,22): warning C4018: '<': signed/unsigned mismatch
 E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(215,22): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(298,22): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(309,23): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(311,23): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(318,23): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(320,23): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(365,21): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(376,22): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(378,22): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(385,22): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(387,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(297,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(308,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(310,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(317,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(319,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(364,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(375,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(377,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(384,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm\MultilevelQueueAlgorithm.cpp(386,22): warning C4018: '<': signed/unsigned mismatch
   MultilevelQueueAlgorithm.vcxproj -> E:\Git Files\Scheduling-Algorithms\MultilevelQueueAlgorithm\Debug\MultilevelQueueAlgorithm.exe
