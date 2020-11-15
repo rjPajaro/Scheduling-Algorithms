@@ -281,8 +281,9 @@ int FCFS(int arrived)
 
 
 /* SJF-P
-* Should choose the process with the lowest burst time first
-* 
+* Should choose the process with the lowest burst time first [/]
+* When SJF_P = 1, sort all process with priority of 1 [/]
+* When SJF_P = 2, sort all process with priority of 2 [/]
 */
 int SJF_P(int arrived) {
 	int next = 0;
@@ -292,7 +293,35 @@ int SJF_P(int arrived) {
 		// check which of the current processes in the queue has the lowest burst time and then re-order the queue
 
 		if (readMe.size() > 1) {
-			sort(readMe.begin(), readMe.end(), burstSort);
+			vector<process> prioOne, prioTwo;
+			int prioCounter = 0;
+			for (int i = 0; i < readMe.size(); i++) {
+				if (readMe[i].priority == 1)
+					prioOne.push_back(readMe[i]);
+				else if (readMe[i].priority == 2)
+					prioTwo.push_back(readMe[i]);
+			}
+
+			if (readMe[pos].priority == 1) {
+				readMe.clear();
+				sort(prioOne.begin(), prioOne.end(), burstSort);
+
+				for (int i = 0; i < prioOne.size(); i++)
+					readMe.push_back(prioOne[i]);
+				for (int i = 0; i < prioTwo.size(); i++)
+					readMe.push_back(prioTwo[i]);
+			}
+			else if (readMe[pos].priority == 2) {
+				readMe.clear();
+				sort(prioTwo.begin(), prioTwo.end(), burstSort);
+
+				for (int i = 0; i < prioOne.size(); i++)
+					readMe.push_back(prioOne[i]);
+				for (int i = 0; i < prioTwo.size(); i++)
+					readMe.push_back(prioTwo[i]);
+			}
+
+			//sort(readMe.begin(), readMe.end(), burstSort);
 			readMe[pos].burst--;
 
 			ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
@@ -331,7 +360,35 @@ int SJF_P(int arrived) {
 		
 	}
 	else {
-		sort(readMe.begin(), readMe.end(), burstSort);
+		vector<process> prioOne, prioTwo;
+		int prioCounter = 0;
+		for (int i = 0; i < readMe.size(); i++) {
+			if (readMe[i].priority == 1)
+				prioOne.push_back(readMe[i]);
+			else if (readMe[i].priority == 2)
+				prioTwo.push_back(readMe[i]);
+		}
+
+		if (readMe[pos].priority == 1) {
+			readMe.clear();
+			sort(prioOne.begin(), prioOne.end(), burstSort);
+
+			for (int i = 0; i < prioOne.size(); i++)
+				readMe.push_back(prioOne[i]);
+			for (int i = 0; i < prioTwo.size(); i++)
+				readMe.push_back(prioTwo[i]);
+		}
+		else if (readMe[pos].priority == 2) {
+			readMe.clear();
+			sort(prioTwo.begin(), prioTwo.end(), burstSort);
+
+			for (int i = 0; i < prioOne.size(); i++)
+				readMe.push_back(prioOne[i]);
+			for (int i = 0; i < prioTwo.size(); i++)
+				readMe.push_back(prioTwo[i]);
+		}
+
+		//sort(readMe.begin(), readMe.end(), burstSort);
 		readMe[pos].burst--;
 
 		ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
@@ -354,4 +411,5 @@ int SJF_P(int arrived) {
 
 	return next;
 }
+
 
