@@ -111,7 +111,7 @@ int main()
 	/*
 	* Process for multilevel queue:
 	* - have an incrementing arrival time and a variable that checks and increments process vector [/]
-	* - condition that when the process meets the arrival time, add to the queue [/]p
+	* - condition that when the process meets the arrival time, add to the queue [/]
 	* - sort according to priority (1 first then 2 would go last) [/]
 	* - FCFS
 	*/
@@ -206,6 +206,7 @@ int main()
 			processing = false;
 
 			for (int u = 0; u < ganttChart.size(); u++) {
+				//cout << "P" << ganttChart[u].process << " ";
 				if (u == 0) {
 					cout << "P" << ganttChart[u].process << " ";
 				}
@@ -215,6 +216,7 @@ int main()
 			}
 			cout << endl;
 			for (int u = 0; u < ganttChart.size(); u++) {
+				//cout << ganttChart[u].time << " ";
 				if (u == 0) {
 					cout << ganttChart[u].time << " ";
 				}
@@ -296,6 +298,7 @@ int SJF_P(int arrived) {
 		if (readMe.size() > 1) {
 			vector<process> prioOne, prioTwo;
 			int prioCounter = 0;
+			// Checks if SJF_P is used by FP or BP and adds the them to their own vectors
 			for (int i = 0; i < readMe.size(); i++) {
 				if (readMe[i].priority == 1)
 					prioOne.push_back(readMe[i]);
@@ -303,23 +306,36 @@ int SJF_P(int arrived) {
 					prioTwo.push_back(readMe[i]);
 			}
 
+
 			if (readMe[pos].priority == 1) {
 				readMe.clear();
 				sort(prioOne.begin(), prioOne.end(), burstSort);
 
-				for (int i = 0; i < prioOne.size(); i++)
-					readMe.push_back(prioOne[i]);
-				for (int i = 0; i < prioTwo.size(); i++)
-					readMe.push_back(prioTwo[i]);
+				if (prioTwo.size() > 0) {
+					for (int i = 0; i < prioOne.size(); i++)
+						readMe.push_back(prioOne[i]);
+					for (int i = 0; i < prioTwo.size(); i++)
+						readMe.push_back(prioTwo[i]);
+				}
+				else {
+					for (int i = 0; i < prioOne.size(); i++)
+						readMe.push_back(prioOne[i]);
+				}
 			}
 			else if (readMe[pos].priority == 2) {
 				readMe.clear();
 				sort(prioTwo.begin(), prioTwo.end(), burstSort);
 
-				for (int i = 0; i < prioOne.size(); i++)
-					readMe.push_back(prioOne[i]);
-				for (int i = 0; i < prioTwo.size(); i++)
-					readMe.push_back(prioTwo[i]);
+				if (prioOne.size() > 0) {
+					for (int i = 0; i < prioOne.size(); i++)
+						readMe.push_back(prioOne[i]);
+					for (int i = 0; i < prioTwo.size(); i++)
+						readMe.push_back(prioTwo[i]);
+				}
+				else {
+					for (int i = 0; i < prioTwo.size(); i++)
+						readMe.push_back(prioTwo[i]);
+				}
 			}
 
 			//sort(readMe.begin(), readMe.end(), burstSort);
@@ -374,19 +390,31 @@ int SJF_P(int arrived) {
 			readMe.clear();
 			sort(prioOne.begin(), prioOne.end(), burstSort);
 
-			for (int i = 0; i < prioOne.size(); i++)
-				readMe.push_back(prioOne[i]);
-			for (int i = 0; i < prioTwo.size(); i++)
-				readMe.push_back(prioTwo[i]);
+			if (prioTwo.size() > 0) {
+				for (int i = 0; i < prioOne.size(); i++)
+					readMe.push_back(prioOne[i]);
+				for (int i = 0; i < prioTwo.size(); i++)
+					readMe.push_back(prioTwo[i]);
+			}
+			else {
+				for (int i = 0; i < prioOne.size(); i++)
+					readMe.push_back(prioOne[i]);
+			}
 		}
 		else if (readMe[pos].priority == 2) {
 			readMe.clear();
 			sort(prioTwo.begin(), prioTwo.end(), burstSort);
 
-			for (int i = 0; i < prioOne.size(); i++)
-				readMe.push_back(prioOne[i]);
-			for (int i = 0; i < prioTwo.size(); i++)
-				readMe.push_back(prioTwo[i]);
+			if (prioOne.size() > 0) {
+				for (int i = 0; i < prioOne.size(); i++)
+					readMe.push_back(prioOne[i]);
+				for (int i = 0; i < prioTwo.size(); i++)
+					readMe.push_back(prioTwo[i]);
+			}
+			else {
+				for (int i = 0; i < prioTwo.size(); i++)
+					readMe.push_back(prioTwo[i]);
+			}
 		}
 
 		//sort(readMe.begin(), readMe.end(), burstSort);
@@ -411,12 +439,154 @@ int SJF_P(int arrived) {
 }
 
 /* SJF-NP
-* Finish whichever process arrives first, then compare the burst on which should be finished next
+* Finish whichever process arrives first, then compare the burst on which should be finished next [/]
 * When SJF_NP = 1, sort all process with priority of 1 [/]
 * When SJF_NP = 2, sort all process with priority of 2 [/]
 */
 int SJF_NP(int arrived) {
 	int next = 0;
 
+	if (arrived == readMe[pos].arrival) {
+		// check which of the current processes in the queue has the lowest burst time and then re-order the queue
+
+		if (readMe.size() > 1) {
+			vector<process> prioOne, prioTwo;
+			int prioCounter = 0;
+
+			readMe[pos].burst--;
+			ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+			if (readMe[pos].burst > 0) // if the process still has bursts left
+				next = readMe[pos].priority;
+			else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+				readMe.erase(readMe.begin() + pos);
+				if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+					pos = 0;
+				}
+
+				if (readMe.size() > 0) { // when there are still processes left
+					for (int i = 0; i < readMe.size(); i++) {
+						if (readMe[i].priority == 1)
+							prioOne.push_back(readMe[i]);
+						else if (readMe[i].priority == 2)
+							prioTwo.push_back(readMe[i]);
+					}
+
+					// sort priority of SJF_NP starting with the lowest burst time
+					if (readMe[pos].priority == 1) {
+						readMe.clear();
+						sort(prioOne.begin(), prioOne.end(), burstSort);
+
+						if (prioTwo.size() > 0) {
+							for (int i = 0; i < prioOne.size(); i++)
+								readMe.push_back(prioOne[i]);
+							for (int i = 0; i < prioTwo.size(); i++)
+								readMe.push_back(prioTwo[i]);
+						}
+						else {
+							for (int i = 0; i < prioOne.size(); i++)
+								readMe.push_back(prioOne[i]);
+						}
+					}
+					else if (readMe[pos].priority == 2) {
+						readMe.clear();
+						sort(prioTwo.begin(), prioTwo.end(), burstSort);
+
+						if (prioOne.size() > 0) {
+							for (int i = 0; i < prioOne.size(); i++)
+								readMe.push_back(prioOne[i]);
+							for (int i = 0; i < prioTwo.size(); i++)
+								readMe.push_back(prioTwo[i]);
+						}
+						else {
+							for (int i = 0; i < prioTwo.size(); i++)
+								readMe.push_back(prioTwo[i]);
+						}
+					}
+					next = readMe[pos].priority;
+				}
+			}
+		}
+		else {
+			readMe[pos].burst--;
+
+			ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+			if (readMe[pos].burst > 0) // if the process still has bursts left
+				next = readMe[pos].priority;
+			else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+				readMe.erase(readMe.begin() + pos);
+				if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+					pos = 0;
+				}
+
+				if (readMe.size() > 0) { // when there are still processes left
+					next = readMe[pos].priority;
+				}
+			}
+		}
+
+	}
+	else {
+		vector<process> prioOne, prioTwo;
+		int prioCounter = 0;
+
+		readMe[pos].burst--;
+		ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+		if (readMe[pos].burst > 0) // if the process still has bursts left
+			next = readMe[pos].priority;
+		else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+			readMe.erase(readMe.begin() + pos);
+			if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+				pos = 0;
+			}
+
+			if (readMe.size() > 0) { // when there are still processes left
+				for (int i = 0; i < readMe.size(); i++) {
+					if (readMe[i].priority == 1)
+						prioOne.push_back(readMe[i]);
+					else if (readMe[i].priority == 2)
+						prioTwo.push_back(readMe[i]);
+				}
+
+				// sort priority of SJF_NP starting with the lowest burst time
+				if (readMe[pos].priority == 1) {
+					readMe.clear();
+					sort(prioOne.begin(), prioOne.end(), burstSort);
+
+					if (prioTwo.size() > 0) {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+					else {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+					}
+				}
+				else if (readMe[pos].priority == 2) {
+					readMe.clear();
+					sort(prioTwo.begin(), prioTwo.end(), burstSort);
+
+					if (prioOne.size() > 0) {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+					else {
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+				}
+				next = readMe[pos].priority;
+			}
+		}
+	}
+
 	return next;
 }
+
+
