@@ -51,6 +51,8 @@ void processValues(vector<int>);
 int FCFS(int);
 int SJF_P(int);
 int SJF_NP(int);
+int P_P(int);
+int P_NP(int);
 
 int main()
 {
@@ -171,8 +173,10 @@ int main()
 				currentQueue = SJF_NP(i);
 				break;
 			case 4: // P-P
+				currentQueue = P_P(i);
 				break;
 			case 5: // P-NP
+				currentQueue = P_NP(i);
 				break;
 			case 6: // RR
 				break;
@@ -190,8 +194,10 @@ int main()
 				currentQueue = SJF_NP(i);
 				break;
 			case 4: // P-P
+				currentQueue = P_P(i);
 				break;
 			case 5: // P-NP
+				currentQueue = P_NP(i);
 				break;
 			case 6: // RR
 				break;
@@ -235,7 +241,6 @@ int main()
 			}
 			cout << ganttChart.size() << endl << endl;
 		}
-			
 	}
 }
 
@@ -266,8 +271,6 @@ void processValues(vector<int> processes)
 * If the current process is a bg process, once a fg process queues at a certain time unit, stop bg process
 * If the process is finished, pop the process from the queue
 */
-
-
 int FCFS(int arrived)
 {
 	int next = 0;
@@ -291,7 +294,6 @@ int FCFS(int arrived)
 
 	return next; // shall return the priority value of the process that should be ran (probs gonna change this)
 }
-
 
 /* SJF-P
 * Should choose the process with the lowest burst time first [/]
@@ -542,4 +544,178 @@ int SJF_NP(int arrived) {
 	return next;
 }
 
+/*Priority Preemptive
+* The approach is almost the same as SJF, but this code only preempts when the priority of the the process that arrived is higher
+*/
+int P_P(int arrived) {
+	int next = 0;
 
+	if (readMe.size() > 1) {
+		vector<process> prioOne, prioTwo;
+		int prioCounter = 0;
+
+		readMe[pos].burst--;
+		ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+		if (readMe[pos].burst > 0) // if the process still has bursts left
+			next = readMe[pos].priority;
+		else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+			readMe.erase(readMe.begin() + pos);
+			if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+				pos = 0;
+			}
+
+			if (readMe.size() > 0) { // when there are still processes left
+				for (int i = 0; i < readMe.size(); i++) {
+					if (readMe[i].priority == 1)
+						prioOne.push_back(readMe[i]);
+					else if (readMe[i].priority == 2)
+						prioTwo.push_back(readMe[i]);
+				}
+
+				// sort priority of SJF_NP starting with the lowest burst time
+				if (readMe[pos].priority == 1) {
+					readMe.clear();
+					sort(prioOne.begin(), prioOne.end(), arrivalSort);
+
+					if (prioTwo.size() > 0) {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+					else {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+					}
+				}
+				else if (readMe[pos].priority == 2) {
+					readMe.clear();
+					sort(prioTwo.begin(), prioTwo.end(), arrivalSort);
+
+					if (prioOne.size() > 0) {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+					else {
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+				}
+				next = readMe[pos].priority;
+			}
+		}
+	}
+	else {
+		readMe[pos].burst--;
+
+		ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+		if (readMe[pos].burst > 0) // if the process still has bursts left
+			next = readMe[pos].priority;
+		else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+			readMe.erase(readMe.begin() + pos);
+			if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+				pos = 0;
+			}
+
+			if (readMe.size() > 0) { // when there are still processes left
+				next = readMe[pos].priority;
+			}
+		}
+	}
+
+	return next;
+}
+
+/*Priority Non-Preemptive*/
+int P_NP(int arrived) {
+	int next = 0;
+
+	preempt = 1;
+
+	if (readMe.size() > 1) {
+		vector<process> prioOne, prioTwo;
+		int prioCounter = 0;
+
+		readMe[pos].burst--;
+		ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+		if (readMe[pos].burst > 0) // if the process still has bursts left
+			next = readMe[pos].priority;
+		else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+			readMe.erase(readMe.begin() + pos);
+			if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+				pos = 0;
+			}
+
+			preempt = 0;
+
+			if (readMe.size() > 0) { // when there are still processes left
+				for (int i = 0; i < readMe.size(); i++) {
+					if (readMe[i].priority == 1)
+						prioOne.push_back(readMe[i]);
+					else if (readMe[i].priority == 2)
+						prioTwo.push_back(readMe[i]);
+				}
+
+				// sort priority of SJF_NP starting with the lowest burst time
+				if (readMe[pos].priority == 1) {
+					readMe.clear();
+					sort(prioOne.begin(), prioOne.end(), arrivalSort);
+
+					if (prioTwo.size() > 0) {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+					else {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+					}
+				}
+				else if (readMe[pos].priority == 2) {
+					readMe.clear();
+					sort(prioTwo.begin(), prioTwo.end(), arrivalSort);
+
+					if (prioOne.size() > 0) {
+						for (int i = 0; i < prioOne.size(); i++)
+							readMe.push_back(prioOne[i]);
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+					else {
+						for (int i = 0; i < prioTwo.size(); i++)
+							readMe.push_back(prioTwo[i]);
+					}
+				}
+				next = readMe[pos].priority;
+			}
+		}
+	}
+	else {
+		readMe[pos].burst--;
+
+		ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+		if (readMe[pos].burst > 0) // if the process still has bursts left
+			next = readMe[pos].priority;
+		else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+			readMe.erase(readMe.begin() + pos);
+			if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+				pos = 0;
+			}
+
+			preempt = 0;
+
+			if (readMe.size() > 0) { // when there are still processes left
+				next = readMe[pos].priority;
+			}
+		}
+	}
+
+	return next;
+}
