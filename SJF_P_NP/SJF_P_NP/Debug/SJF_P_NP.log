@@ -1,0 +1,8 @@
+﻿  SJF_P_NP.cpp
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(75,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(78,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(121,15): warning C4553: '==': result of expression not used; did you intend '='?
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(173,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(185,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(205,21): warning C4018: '<': signed/unsigned mismatch
+  SJF_P_NP.vcxproj -> E:\Git Files\Scheduling-Algorithms\SJF_P_NP\Debug\SJF_P_NP.exe
