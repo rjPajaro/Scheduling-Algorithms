@@ -1,8 +1,18 @@
 ﻿  SJF_P_NP.cpp
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(75,20): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(78,20): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(121,15): warning C4553: '==': result of expression not used; did you intend '='?
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(173,21): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(185,21): warning C4018: '<': signed/unsigned mismatch
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(205,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(74,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(77,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(120,15): warning C4553: '==': result of expression not used; did you intend '='?
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(170,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(171,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(172,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(173,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(174,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(175,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(176,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(177,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(188,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(229,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(258,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(298,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(336,21): warning C4018: '<': signed/unsigned mismatch
   SJF_P_NP.vcxproj -> E:\Git Files\Scheduling-Algorithms\SJF_P_NP\Debug\SJF_P_NP.exe
