@@ -257,14 +257,27 @@ void GanttChart() {
 			//cout << "P" << ganttChart[u].process << " "; // debug
 			
 			if (ganttChart[u].process != ganttChart[u + 1].process) {
-				if (ganttChart[u+1].time - gc[check].time < 4) {
-					cout << vl << " P" << ganttChart[u].process << " ";
+				if (ganttChart[u].process == -1) {
+					if (ganttChart[u + 1].time - gc[check].time < 4) {
+						cout << vl << " NA ";
+					}
+					else if (ganttChart[u + 1].time - gc[check].time > 3 && ganttChart[u].time - gc[check].time <= 10) {
+						cout << vl << "   NA   ";
+					}
+					else if (ganttChart[u + 1].time - gc[check].time > 10) {
+						cout << vl << "      NA      ";
+					}
 				}
-				else if (ganttChart[u+1].time - gc[check].time > 3 && ganttChart[u].time - gc[check].time <= 10) {
-					cout << vl << "   P" << ganttChart[u].process << "   ";
-				}
-				else if (ganttChart[u+1].time - gc[check].time > 10) {
-					cout << vl << "      P" << ganttChart[u].process << "      ";
+				else {
+					if (ganttChart[u + 1].time - gc[check].time < 4) {
+						cout << vl << " P" << ganttChart[u].process << " ";
+					}
+					else if (ganttChart[u + 1].time - gc[check].time > 3 && ganttChart[u].time - gc[check].time <= 10) {
+						cout << vl << "   P" << ganttChart[u].process << "   ";
+					}
+					else if (ganttChart[u + 1].time - gc[check].time > 10) {
+						cout << vl << "      P" << ganttChart[u].process << "      ";
+					}
 				}
 				check++;
 			}

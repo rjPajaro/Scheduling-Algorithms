@@ -9,19 +9,19 @@ E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(202,12): warni
 E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(203,12): warning C4309: 'initializing': truncation of constant value
 E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(204,12): warning C4309: 'initializing': truncation of constant value
 E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(209,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(358,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(359,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(360,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(361,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(362,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(363,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(364,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(365,12): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(366,15): warning C4309: 'initializing': truncation of constant value
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(381,37): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(371,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(372,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(373,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(374,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(375,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(376,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(377,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(378,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(379,15): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(394,37): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
           with
           [
               _Ty=int
           ]
-E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(394,4): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\Git Files\Scheduling-Algorithms\SJF_P_NP\SJF_P_NP\SJF_P_NP.cpp(407,4): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   SJF_P_NP.vcxproj -> E:\Git Files\Scheduling-Algorithms\SJF_P_NP\x64\Debug\SJF_P_NP.exe
