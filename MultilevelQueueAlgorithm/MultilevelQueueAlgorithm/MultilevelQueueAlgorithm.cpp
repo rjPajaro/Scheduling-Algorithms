@@ -53,6 +53,7 @@ int SJF_P(int);
 int SJF_NP(int);
 int P_P(int);
 int P_NP(int);
+int RR(int);
 
 int main()
 {
@@ -179,6 +180,7 @@ int main()
 				currentQueue = P_NP(i);
 				break;
 			case 6: // RR
+				currentQueue = RR(i);
 				break;
 			}
 			break;
@@ -200,6 +202,7 @@ int main()
 				currentQueue = P_NP(i);
 				break;
 			case 6: // RR
+				currentQueue = RR(i);
 				break;
 			}
 			break;
@@ -221,23 +224,23 @@ int main()
 			processing = false;
 
 			for (int u = 0; u < ganttChart.size(); u++) {
-				//cout << "P" << ganttChart[u].process << " ";
-				if (u == 0) {
+				cout << "P" << ganttChart[u].process << " ";
+				/*if (u == 0) {
 					cout << "P" << ganttChart[u].process << " ";
 				}
 				else if (ganttChart[u].process != ganttChart[u - 1].process) {
 					cout << "P" << ganttChart[u].process << " ";
-				}
+				}*/
 			}
 			cout << endl;
 			for (int u = 0; u < ganttChart.size(); u++) {
-				//cout << ganttChart[u].time << " ";
-				if (u == 0) {
+				cout << ganttChart[u].time << " ";
+				/*if (u == 0) {
 					cout << ganttChart[u].time << " ";
 				}
 				else if (ganttChart[u].process != ganttChart[u - 1].process) {
 					cout << ganttChart[u].time << " ";
-				}
+				}*/
 			}
 			cout << ganttChart.size() << endl << endl;
 		}
@@ -714,6 +717,58 @@ int P_NP(int arrived) {
 			if (readMe.size() > 0) { // when there are still processes left
 				next = readMe[pos].priority;
 			}
+		}
+	}
+
+	return next;
+}
+
+/*Round Robin
+* 
+*/
+int currentFQ = 0, currentBQ = 0;
+int RR(int arrived) {
+	int next = 0;
+
+	if (currentFQ == qFore) { // if the count reaches the foreground quantum
+		currentFQ = 0; // reset quantum count
+		pos++; // move to next position
+
+		if (pos == readMe.size()) {
+			pos = 0;
+		}
+	}
+
+	readMe[pos].burst--;
+
+	ganttChart.push_back({ readMe[pos].order, readMe[pos].burst, arrived });
+
+	if (readMe[pos].burst > 0) {
+		if (readMe[pos].priority == 1) { // if RR is a foreground process
+			next = readMe[pos].priority;
+			currentFQ++;
+		}
+		else if (readMe[pos].priority == 2){
+			next = readMe[pos].priority;
+			currentBQ++;
+			if (currentBQ == qBack) { // if the count reaches the foreground quantum
+				currentBQ = 0; // reset quantum count
+				pos++; // move to next position
+
+				if (pos == readMe.size()) {
+					pos = 0;
+				}
+			}
+		}
+	}
+	else if (readMe[pos].burst <= 0) { // if the process has no bursts left
+		readMe.erase(readMe.begin() + pos);
+		if (pos == readMe.size()) { // when the position reaches greater than what's in the Queue, reset position to 0
+			pos = 0;
+		}
+
+		if (readMe.size() > 0) { // when there are still processes left
+			next = readMe[pos].priority;
 		}
 	}
 
