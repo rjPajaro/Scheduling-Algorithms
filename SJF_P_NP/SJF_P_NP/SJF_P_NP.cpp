@@ -92,7 +92,7 @@ int main()
 		cout << " P" << i + 1 << ": " << sortProc[i].burst << endl;
 	cout << "Priority:" << endl;
 	for (int i = 0; i < sortProc.size(); i++)
-		cout << " P" << i + 1 << ": " << values[(numProc * 2)+i+1] << endl;
+		cout << " P" << i + 1 << ": " << values[(numProc * 2) + i + 1] << endl;
 
 	// sort according to arrival time
 	sort(sortProc.begin(), sortProc.end(), arrivalSort);
@@ -130,7 +130,7 @@ int main()
 				GanttChart();
 			}
 		}
-		
+
 	}
 	Table();
 
@@ -235,7 +235,7 @@ void GanttChart() {
 				gc.push_back({ ganttChart[u].process,ganttChart[u].burst,ganttChart[u].time });
 			}
 		}
-		if (ganttChart[gcSize-1].time - gc[gc.size()-1].time < 4) {
+		if (ganttChart[gcSize - 1].time - gc[gc.size() - 1].time < 4) {
 			for (int l = 0; l < 4; l++)
 				cout << hl;
 			cout << ur;
@@ -253,9 +253,9 @@ void GanttChart() {
 		cout << endl;
 
 		// Processes
-		for (int u = 0, check = 0; u < ganttChart.size()-1; u++) {
+		for (int u = 0, check = 0; u < ganttChart.size() - 1; u++) {
 			//cout << "P" << ganttChart[u].process << " "; // debug
-			
+
 			if (ganttChart[u].process != ganttChart[u + 1].process) {
 				if (ganttChart[u].process == -1) {
 					if (ganttChart[u + 1].time - gc[check].time < 4) {
@@ -333,7 +333,7 @@ void GanttChart() {
 			cout << br;
 		}
 		cout << endl;
-		
+
 		// num nums (time units)
 		for (int u = 0, check = 0; u < ganttChart.size() - 1; u++) {
 			//cout << "P" << ganttChart[u].process << " "; // debug
@@ -342,13 +342,13 @@ void GanttChart() {
 			}
 			if (ganttChart[u].process != ganttChart[u + 1].process) {
 				if (ganttChart[u + 1].time - gc[check].time < 4) {
-					cout << setw(5) << ganttChart[u+1].time;
+					cout << setw(5) << ganttChart[u + 1].time;
 				}
 				else if (ganttChart[u + 1].time - gc[check].time > 3 && ganttChart[u].time - gc[check].time <= 10) {
-					cout << setw(9) << ganttChart[u+1].time;
+					cout << setw(9) << ganttChart[u + 1].time;
 				}
 				else if (ganttChart[u + 1].time - gc[check].time > 10) {
-					cout << setw(15) << ganttChart[u+1].time;
+					cout << setw(15) << ganttChart[u + 1].time;
 				}
 				check++;
 			}
@@ -381,7 +381,7 @@ void Table() {
 	cout << "Table" << endl;
 	sort(sortProc.begin(), sortProc.end(), processSort);
 
-	cout << " Processes " << vl << " Waiting Time " << vl << " Turnaround Time " << endl;
+	cout << " Processes " << vl << " Turnaround Time " << vl << "  Waiting Time " << endl;
 
 	// Table Inputs
 	for (int i = 0; i < numProc; i++) {
@@ -415,7 +415,7 @@ void Table() {
 		}
 
 		// Table Output
-		cout << "  P" << sortProc[i].order << setw(8) << vl << setw(8) << tTime << setw(7) << vl << setw(9) << wait << endl;
+		cout << "  P" << sortProc[i].order << setw(8) << vl << setw(9) << tTime << setw(9) << vl << setw(10) << wait << endl;
 		ttTbl.push_back(tTime);
 		tWaitTbl.push_back(wait);
 	}
@@ -425,10 +425,10 @@ void Table() {
 		totalTT += ttTbl[t];
 		totalWait += tWaitTbl[t];
 	}
-	cout << setw(12) << setfill(hl) << cross << setw(15) << cross << setw(18) << "\n" << setfill(' ');
+	cout << setw(12) << setfill(hl) << cross << setw(18) << cross << setw(18) << "\n" << setfill(' ');
 	// Total and Average:
-	cout << " Total" << setw(6) << vl << setw(8) << totalTT << setw(7) << vl << setw(10) << totalWait << endl;
-	cout << " Average" << setw(4) << vl << setw(8) << (float)totalTT / (float)numProc << setw(7) << vl << setw(10) << (float)totalWait / (float)numProc << endl;
+	cout << " Total" << setw(6) << vl << setw(9) << totalTT << setw(9) << vl << setw(10) << totalWait << endl;
+	cout << " Average" << setw(4) << vl << setw(9) << (float)totalTT / (float)numProc << setw(9) << vl << setw(10) << (float)totalWait / (float)numProc << endl;
 	cout << setfill(' ');
 }
 
