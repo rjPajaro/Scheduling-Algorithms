@@ -1,0 +1,44 @@
+﻿  P_P_NP.cpp
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(89,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(92,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(95,20): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(106,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(143,15): warning C4553: '==': result of expression not used; did you intend '='?
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(152,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(201,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(202,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(203,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(204,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(205,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(206,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(207,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(208,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(219,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(260,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(302,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(342,32): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(375,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(376,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(377,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(378,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(379,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(380,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(381,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(382,12): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(383,15): warning C4309: 'initializing': truncation of constant value
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(394,21): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(463,23): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(476,25): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(478,25): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(482,25): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(491,25): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(493,25): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(497,25): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(552,22): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(565,24): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(567,24): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(571,24): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(580,24): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(582,24): warning C4018: '<': signed/unsigned mismatch
+E:\Git Files\Scheduling-Algorithms\P_P_NP\P_P_NP\P_P_NP.cpp(586,24): warning C4018: '<': signed/unsigned mismatch
+  P_P_NP.vcxproj -> E:\Git Files\Scheduling-Algorithms\P_P_NP\Debug\P_P_NP.exe
