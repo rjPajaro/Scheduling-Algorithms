@@ -1,5 +1,5 @@
 # Scheduling-Algorithms
-This repo contains CPU scheduling algorithms simulated through CLI applications. The scheduling algorithms are written using C++ programming for as a completion project for my operating systems class in Mapua University.
+This repo contains CPU scheduling algorithms simulated through CLI applications. The scheduling algorithms are written using C++ programming as a completion project for my operating systems class in Mapua University.
 
 The repo contains the following scheduling algorithms:
  * <b>Multilevel Queue Algorithm</b> - contains a combination of FCFS, SJF_P, SJF_NP, P_P, P_NP, and RR algorithms.
